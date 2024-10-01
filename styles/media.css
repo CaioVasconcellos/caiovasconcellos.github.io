@@ -1,4 +1,4 @@
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 1060px){
 body{
         margin: 0;
 }
@@ -125,6 +125,7 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    place-items: center;
     height: 60vh;
 
 }
@@ -133,8 +134,12 @@ body{
     font-size: 20px;
     margin-top: 10rem;
 }
+
+.skills__container my-skills{
+    margin-bottom: 5rem;
 }
 
+}
 
 
 

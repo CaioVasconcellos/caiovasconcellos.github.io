@@ -72,6 +72,7 @@ padding: 0;
     .skills{
         width: 350px;
         height: 250px;
+        margin-top: auto;
     }
         `;
     return style;
