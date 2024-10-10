@@ -40,13 +40,17 @@ class Work extends HTMLElement{
 
             const workContent = document.createElement("p");
                 workContent.textContent = this.getAttribute("content");
+                workContent.innerHTML = this.getAttribute("content")
+                .replace(/\n/g, "<br>")
+                .replace(/-/g, "&bull;");
+
 
             const workLink = document.createElement("a");
                 workLink.href = this.getAttribute("link-url");
                 workLink.innerHTML = "Veja mais &rarr;";
+                workLink.target = "_blank";
 
-                
-        
+
             workInformation.appendChild(workTitle);
             workInformation.appendChild(workContent);
             workInformation.appendChild(workLink);
@@ -100,6 +104,7 @@ class Work extends HTMLElement{
 
         .work__information > p{
         font-size: 15px;
+        white-space: pre-line;
     }
 
 
@@ -134,10 +139,10 @@ class Work extends HTMLElement{
 
 
         .work img{
-            width: 100%;
+            width: 60%;
             min-width: 40rem;
             max-width: 47rem;
-            height: auto;
+            height: 350px;
 
         }
 

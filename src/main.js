@@ -1,5 +1,6 @@
 /* MENU */
 
+let menuActive = false;
 const showMenu = (toggleId, navId) => {
     const toggle = document.getElementById(toggleId),
     nav = document.getElementById(navId)
@@ -7,8 +8,10 @@ const showMenu = (toggleId, navId) => {
     if(toggle && nav){
         toggle.addEventListener('click', ()=>{
             nav.classList.toggle('show');
+            return menuActive = true;
         })
     }
+    
 }
 
 showMenu('nav-toggle','nav-menu');
@@ -27,6 +30,23 @@ function linkAction(){
 }
 
 navLink.forEach(n => n.addEventListener('click', linkAction));
+
+/* remover menu ao clicar fora */
+
+const closeMenu = (navId, toggleId) => {
+    const nav = document.getElementById(navId);
+    const toggle = document.getElementById(toggleId);
+
+    document.addEventListener('click', (e) => {
+        
+        if (menuActive && !nav.contains(e.target) && !toggle.contains(e.target)) {
+            nav.classList.remove('show'); 
+            menuActive = false;
+        }
+    });
+};
+
+closeMenu('nav-menu', 'nav-toggle');
 
 /* SCROLL REVEAL ANIMATION */
 const sr = ScrollReveal({
